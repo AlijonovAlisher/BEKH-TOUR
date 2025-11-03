@@ -1123,69 +1123,94 @@
         });
 
         // Telegram bot integration for booking form
-        async function sendToTelegramBooking(data) {
-            const botToken = '8579829488:AAGPGl9CuwILxkEh8TDq3ExgI-MpkxTKPYA';
-            const chatId = '925918834';
-            const text = `
+async function sendToTelegramBooking(data) {
+    const botToken = '8579829488:AAGPGl9CuwILxkEh8TDq3ExgI-MpkxTKPYA';
+    const chatIds = ['925918834', '8157562474', '5288072007', '7984884145']; // 4 ta chat ID
+
+    const text = `
 🆕 <b>Yangi bron arizasi!</b>
 
 🗺️ <b>Davlat:</b> ${data.country}
 👥 <b>Kishilar soni:</b> ${data.people}
 📅 <b>Sayohat kuni:</b> ${data.days}
 📞 <b>Telefon:</b> ${data.phone}
-            `;
-            const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-            
+    `;
+
+    const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+    const results = [];
+
+    for (const chatId of chatIds) {
+        try {
             const response = await fetch(url, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     chat_id: chatId,
                     text: text,
                     parse_mode: 'HTML'
                 })
             });
-            
-            if (!response.ok) {
-                throw new Error('Telegram API error');
-            }
-            
-            return await response.json();
-        }
 
-        // Telegram bot integration for contact form
-        async function sendToTelegramContact(data) {
-            const botToken = '8579829488:AAGPGl9CuwILxkEh8TDq3ExgI-MpkxTKPYA';
-            const chatId = '925918834';
-            const text = `
+            if (!response.ok) {
+                console.error(`❌ Xabar ${chatId} ga yuborilmadi`);
+                continue;
+            }
+
+            const result = await response.json();
+            results.push(result);
+
+        } catch (error) {
+            console.error(`⚠️ ${chatId} uchun xato:`, error.message);
+        }
+    }
+
+    return results; // muvaffaqiyatli yuborilganlar ro‘yxati
+}
+
+// Telegram bot integration for contact form
+async function sendToTelegramContact(data) {
+    const botToken = '8579829488:AAGPGl9CuwILxkEh8TDq3ExgI-MpkxTKPYA';
+    const chatIds = ['925918834', '8157562474', '5288072007', '7984884145']; // 4 ta chat ID
+
+    const text = `
 🆕 <b>Yangi xabar!</b>
 
 👤 <b>Ism Familiya:</b> ${data.name}
 📞 <b>Telefon:</b> ${data.phone}
 💬 <b>Xabar:</b> ${data.message}
-            `;
-            const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-            
+    `;
+
+    const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+    const results = [];
+
+    for (const chatId of chatIds) {
+        try {
             const response = await fetch(url, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     chat_id: chatId,
                     text: text,
                     parse_mode: 'HTML'
                 })
             });
-            
+
             if (!response.ok) {
-                throw new Error('Telegram API error');
+                console.error(`❌ Xabar ${chatId} ga yuborilmadi`);
+                continue;
             }
-            
-            return await response.json();
+
+            const result = await response.json();
+            results.push(result);
+
+        } catch (error) {
+            console.error(`⚠️ ${chatId} uchun xato:`, error.message);
         }
+    }
+
+    return results; // muvaffaqiyatli yuborilganlar ro‘yxati
+}
+
 
         // Navbar background on scroll
         window.addEventListener('scroll', function() {
@@ -1201,3 +1226,4 @@
 </body>
 
 </html>
+
