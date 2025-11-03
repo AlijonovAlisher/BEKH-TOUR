@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEKH TOUR - Sayohat Agentligi</title>
+    <link rel="icon" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c786c;
+            --secondary: #ff7e5f;
+            --accent: #00c853;
+            --light: #f8f9fa;
+            --dark: #1a1a1a;
+            --text: #444;
+            --gold: #ffc107;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text);
+            overflow-x: hidden;
+            background-color: #fff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            height: 60px;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            max-width: 200px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1335&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 100px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            animation: fadeInUp 1.5s ease;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            line-height: 1.8;
+        }
+
+        .booking-form {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: 40px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            animation: fadeInUp 2s ease;
+        }
+
+        .booking-form h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+            text-align: left;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .form-input {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            background: white;
+            color: var(--dark);
+            transition: border 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .phone-input-container {
+            position: relative;
+        }
+
+        .phone-prefix {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .phone-input {
+            padding-left: 60px !important;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .services {
+            padding: 100px 0;
+            background-color: var(--light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            padding: 40px 25px;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .service-content p {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .destinations {
+            padding: 100px 0;
+        }
+
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .destination-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .destination-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .destination-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .destination-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 30px 20px 20px;
+        }
+
+        .destination-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .destination-info p {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .rating {
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .contact {
+            padding: 100px 0;
+            background-color: var(--light);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-item i {
+            width: 50px;
+            height: 50px;
+            background: var(--light);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background: #d4edda;
+            color: #155724;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .check-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #bbb;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: left 0.3s ease;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 20px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .logo img {
+                height: 45px;
+            }
+            
+            .booking-form {
+                margin-top: 20px;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 90px 0 40px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .btn {
+                padding: 12px 25px;
+            }
+            
+            .booking-form {
+                padding: 15px;
+            }
+            
+            .hero-content {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <img src="logo.png" alt="BEKH TOUR">
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">Bosh Sahifa</a></li>
+                    <li><a href="#destinations">Yo'nalishlar</a></li>
+                    <li><a href="#services">Xizmatlar</a></li>
+                    <li><a href="#contact">Aloqa</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Dunyo Bo'ylab Sarguzashtli Sayohatlar</h1>
+                <p>Biz bilan dunyoning noyob go'zalliklarini kashf eting. Jazirama plyajlar, baland tog'lar va boy madaniyatlar sizni kutmoqda.</p>
+                <a href="#destinations" class="btn">Sayohatni Boshlang</a>
+                
+                <div class="booking-form">
+                    <h3>Sayohatni bron qilish</h3>
+                    <form id="bookingForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="country">Davlat</label>
+                                <select id="country" class="form-input" required>
+                                    <option value="">Tanlang</option>
+                                    <option value="Sharm El Sheikh (Misr)">Sharm El Sheikh (Misr)</option>
+                                    <option value="Dubay (BAA)">Dubay (BAA)</option>
+                                    <option value="Qatar">Qatar</option>
+                                    <option value="Turkiya">Turkiya</option>
+                                    <option value="Azerbayjon">Azerbayjon</option>
+                                    <option value="Gruziya">Gruziya</option>
+                                    <option value="Vyetnam">Vyetnam</option>
+                                    <option value="Xitoy">Xitoy</option>
+                                    <option value="Bali (Indoneziya)">Bali (Indoneziya)</option>
+                                    <option value="Malayziya">Malayziya</option>
+                                    <option value="Tailand">Tailand</option>
+                                    <option value="Qozog'iston">Qozog'iston</option>
+                                    <option value="Turkmaniston">Turkmaniston</option>
+                                    <option value="Maldiv orollari">Maldiv orollari</option>
+                                    <option value="Rossiya">Rossiya</option>
+                                    <option value="Dengizda Kruizlar">Dengizda Kruizlar</option>
+                                    <option value="Hindiston">Hindiston</option>
+                                    <option value="Mavrikiy">Mavrikiy</option>
+                                    <option value="Shri-Lanka">Shri-Lanka</option>
+                                    <option value="Singapur">Singapur</option>
+                                    <option value="Boshqa davlat">Boshqa davlat</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="people">Kishilar soni</label>
+                                <input type="number" id="people" class="form-input" min="1" max="20" placeholder="1" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="days">Sayohat kuni</label>
+                                <input type="number" id="days" class="form-input" min="1" max="30" placeholder="5" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefon raqami</label>
+                                <div class="phone-input-container">
+                                    <span class="phone-prefix">+998</span>
+                                    <input type="tel" id="phone" class="form-input phone-input" placeholder="90 123 45 67" required maxlength="12">
+                                </div>
+                                <div class="error-message" id="phoneError">Iltimos, to'liq telefon raqamini kiriting (9 ta raqam)</div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i> Arizani Yuborish
+                        </button>
+                    </form>
+                    <div class="success-message" id="successMessage">
+                        <div class="check-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <p>Arizangiz yuborildi!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Bizning Xizmatlar</h2>
+                <p>Biz sizga dunyo bo'ylab eng yaxshi sayohat tajribasini taqdim etamiz</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Mehmonxona Broni</h3>
+                        <p>Dunyoning eng yaxshi mehmonxonalarida qulay va arzon turar joyni taqdim etamiz.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Aviachiptalar</h3>
+                        <p>Eng arzon va qulay aviachiptalarni topishda yordam beramiz.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-umbrella-beach"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Tur Paketlari</h3>
+                        <p>Har qanday byudjet va didga mos tur paketlarini taklif etamiz.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="destinations" id="destinations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mashhur Yo'nalishlar</h2>
+                <p>Dunyoning eng jozibador va mashhur sayohat yo'nalishlari</p>
+            </div>
+            <div class="destinations-grid">
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Dubai">
+                    <div class="destination-info">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h3>Dubai, BAA</h3>
+                        <p>Zamonaviy arxitektura va hashamatli hayot</p>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1528127269322-539801943592?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Turkiya">
+                    <div class="destination-info">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Antaliya, Turkiya</h3>
+                        <p>Jazirama plyajlar va tarixiy joylar</p>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Vyetnam">
+                    <div class="destination-info">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <h3>Ha Long Bay, Vyetnam</h3>
+                        <p>Tabiatning ajoyib mo'jizasi</p>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1333&q=80" alt="Sharm El Sheikh">
+                    <div class="destination-info">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h3>Sharm El Sheikh, Misr</h3>
+                        <p>Qizil dengizning ajoyib plyajlari</p>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Malayziya">
+                    <div class="destination-info">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <h3>Kuala Lumpur, Malayziya</h3>
+                        <p>Zamonaviy va an'anaviy arxitektura</p>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Tailand">
+                    <div class="destination-info">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Phuket, Tailand</h3>
+                        <p>Jannatga o'xshash orollar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Biz bilan Bog'laning</h2>
+                <p>Savollaringiz bormi? Bizga xabar yuboring va biz tez orada siz bilan bog'lanamiz</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Aloqa Ma'lumotlari</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Manzil</h4>
+                                <p>112 Buyuk Ipak Yo'li, Samarqand, O'zbekiston</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Telefon</h4>
+                                <p>+998(90)445 12-11</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@bekhtour.uz</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/sm0417789_aaa333/"><i class="fab fa-instagram"></i></a>
+                        <a href="t.me/+fMXPrrf07KAzMWUy"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Ism Familiya" required>
+                        </div>
+                        <div class="form-group">
+                            <div class="phone-input-container">
+                                <span class="phone-prefix">+998</span>
+                                <input type="tel" id="contactPhone" class="form-input phone-input" placeholder="90 123 45 67" required maxlength="12">
+                            </div>
+                            <div class="error-message" id="contactPhoneError">Iltimos, to'liq telefon raqamini kiriting (9 ta raqam)</div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="Xabaringiz" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Xabar Yuborish</button>
+                    </form>
+                    <div class="success-message" id="contactSuccessMessage">
+                        <div class="check-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <p>Xabaringiz yuborildi!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>BEKH TOUR</h3>
+                    <p>Biz dunyo bo'ylab eng yaxshi sayohat tajribasini taqdim etamiz. Sizning xavfsiz va qiziqarli sayohatingiz bizning ustuvor vazifamizdir.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Tez Havolalar</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Bosh Sahifa</a></li>
+                        <li><a href="#destinations">Yo'nalishlar</a></li>
+                        <li><a href="#services">Xizmatlar</a></li>
+                        <li><a href="#contact">Aloqa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Mashhur Yo'nalishlar</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Dubai, BAA</a></li>
+                        <li><a href="#">Antaliya, Turkiya</a></li>
+                        <li><a href="#">Sharm El Sheikh, Misr</a></li>
+                        <li><a href="#">Phuket, Tailand</a></li>
+                        <li><a href="#">Bali, Indoneziya</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 BEKH TOUR. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // Telefon raqamini avtomatik formatlash
+        const phoneInput = document.getElementById('phone');
+        const contactPhoneInput = document.getElementById('contactPhone');
+        const phoneError = document.getElementById('phoneError');
+        const contactPhoneError = document.getElementById('contactPhoneError');
+
+        function formatPhoneNumber(input, errorElement) {
+            input.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, ''); // faqat raqamlarni qoldiradi
+
+                // Format: 90 123 45 67
+                if (value.length > 2 && value.length <= 5) {
+                    value = value.substring(0, 2) + ' ' + value.substring(2, 5);
+                } else if (value.length > 5 && value.length <= 7) {
+                    value = value.substring(0, 2) + ' ' + value.substring(2, 5) + ' ' + value.substring(5, 7);
+                } else if (value.length > 7) {
+                    value = value.substring(0, 2) + ' ' + value.substring(2, 5) + ' ' + value.substring(5, 7) + ' ' + value.substring(7, 9);
+                }
+
+                e.target.value = value.substring(0, 12); // maksimal uzunlikni cheklash
+                
+                // Telefon raqamini tekshirish
+                const digitsOnly = value.replace(/\D/g, '');
+                if (digitsOnly.length !== 9 && digitsOnly.length > 0) {
+                    errorElement.style.display = 'block';
+                } else {
+                    errorElement.style.display = 'none';
+                }
+            });
+        }
+
+        formatPhoneNumber(phoneInput, phoneError);
+        formatPhoneNumber(contactPhoneInput, contactPhoneError);
+
+        // Booking form submission with Telegram integration
+        document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const country = document.getElementById('country').value;
+            const people = document.getElementById('people').value;
+            const days = document.getElementById('days').value;
+            const phone = document.getElementById('phone').value;
+            
+            // Telefon raqamini tekshirish
+            const phoneDigits = phone.replace(/\D/g, '');
+            if (phoneDigits.length !== 9) {
+                phoneError.style.display = 'block';
+                return;
+            }
+            
+            const fullPhone = '+998 ' + phone;
+            
+            // Prepare data for Telegram
+            const telegramData = {
+                country: country,
+                people: people,
+                days: days,
+                phone: fullPhone
+            };
+            
+            try {
+                // Send to Telegram bot
+                const telegramResponse = await sendToTelegramBooking(telegramData);
+                
+                // Show success message
+                const successMessage = document.getElementById('successMessage');
+                successMessage.style.display = 'block';
+                
+                // Reset form
+                this.reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+                
+            } catch (error) {
+                alert('Ariza yuborishda xatolik yuz berdi. Iltimos, qaytadan urinib ko\'ring.');
+            }
+        });
+
+        // Contact form submission with Telegram integration
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('contactPhone').value;
+            const message = document.getElementById('message').value;
+            
+            // Telefon raqamini tekshirish
+            const phoneDigits = phone.replace(/\D/g, '');
+            if (phoneDigits.length !== 9) {
+                contactPhoneError.style.display = 'block';
+                return;
+            }
+            
+            const fullPhone = '+998 ' + phone;
+            
+            // Prepare data for Telegram
+            const telegramData = {
+                name: name,
+                phone: fullPhone,
+                message: message
+            };
+            
+            try {
+                // Send to Telegram bot
+                const telegramResponse = await sendToTelegramContact(telegramData);
+                
+                // Show success message
+                const successMessage = document.getElementById('contactSuccessMessage');
+                successMessage.style.display = 'block';
+                
+                // Reset form
+                this.reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+                
+            } catch (error) {
+                alert('Xabar yuborishda xatolik yuz berdi. Iltimos, qaytadan urinib ko\'ring.');
+            }
+        });
+
+        // Telegram bot integration for booking form
+        async function sendToTelegramBooking(data) {
+            const botToken = '8579829488:AAGPGl9CuwILxkEh8TDq3ExgI-MpkxTKPYA';
+            const chatId = '7984884145';
+            const text = `
+🆕 <b>Yangi bron arizasi!</b>
+
+🗺️ <b>Davlat:</b> ${data.country}
+👥 <b>Kishilar soni:</b> ${data.people}
+📅 <b>Sayohat kuni:</b> ${data.days}
+📞 <b>Telefon:</b> ${data.phone}
+            `;
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+            
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: text,
+                    parse_mode: 'HTML'
+                })
+            });
+            
+            if (!response.ok) {
+                throw new Error('Telegram API error');
+            }
+            
+            return await response.json();
+        }
+
+        // Telegram bot integration for contact form
+        async function sendToTelegramContact(data) {
+            const botToken = '8579829488:AAGPGl9CuwILxkEh8TDq3ExgI-MpkxTKPYA';
+            const chatId = '7984884145';
+            const text = `
+🆕 <b>Yangi xabar!</b>
+
+👤 <b>Ism Familiya:</b> ${data.name}
+📞 <b>Telefon:</b> ${data.phone}
+💬 <b>Xabar:</b> ${data.message}
+            `;
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+            
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: text,
+                    parse_mode: 'HTML'
+                })
+            });
+            
+            if (!response.ok) {
+                throw new Error('Telegram API error');
+            }
+            
+            return await response.json();
+        }
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
