@@ -1,678 +1,866 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="uz" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BEKH TOUR - Sayohat Agentligi</title>
-    <link rel="icon" href="logo.png">
+    <title>Bekh Tour - Sayohat va Sarguzashtlar</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
     <style>
+        /* ===== Premium Color Palette ===== */
+        :root {
+            --primary-blue: #152337;
+            --secondary-blue: #4285F4;
+            --accent-orange: #FF6B35;
+            --light-beige: #FFF8F0;
+            --dark-blue: #263238;
+            --light-gray: #F5F7FA;
+            --dark-gray: #333333;
+            --white: #FFFFFF;
+            
+            --gradient-primary: linear-gradient(135deg, #1A73E8 0%, #4285F4 100%);
+            --gradient-accent: linear-gradient(135deg, #FF6B35 0%, #FFA726 100%);
+            --gradient-dark: linear-gradient(135deg, #0D47A1 0%, #1A73E8 100%);
+            
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 5px 20px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.15);
+            --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.2);
+            
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-full: 50%;
+        }
+        
+        /* ===== Reset & Base Styles ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        :root {
-            --primary: #2c786c;
-            --secondary: #ff7e5f;
-            --accent: #00c853;
-            --light: #f8f9fa;
-            --dark: #1a1a1a;
-            --text: #444;
-            --gold: #ffc107;
-        }
-
+        
         html {
             scroll-behavior: smooth;
         }
-
+        
         body {
-            line-height: 1.6;
-            color: var(--text);
+            font-family: 'Noto Sans KR', 'Nanum Gothic', sans-serif;
+            font-family: 'Open Sans', 'Noto Sans KR', sans-serif;
+            line-height: 1.7;
+            color: var(--dark-gray);
+            background-color: var(--white);
             overflow-x: hidden;
-            background-color: #fff;
-            font-family: 'Poppins', sans-serif;
         }
-
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.8rem; }
+        h3 { font-size: 2rem; }
+        h4 { font-size: 1.5rem; }
+        
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-subtitle {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
         .container {
-            width: 90%;
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
+        
+        .section-padding {
+            padding: 100px 0;
         }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            width: 70px;
-            height: 4px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 32px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border: none;
-            border-radius: 30px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Language Switcher Styles */
-        .language-switcher {
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            z-index: 1000;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .lang-btn {
-            padding: 12px 20px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            color: var(--dark);
-        }
-
-        .lang-btn:hover {
-            background-color: var(--light);
-        }
-
-        .lang-btn.active {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-        }
-
-        .lang-btn i {
-            font-size: 1.2rem;
-        }
-
-        .lang-btn:first-child {
-            border-bottom: 1px solid #eee;
-        }
-
+        
+        /* ===== Header & Navigation (1-kod asosida) ===== */
         header {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             position: fixed;
-            width: 100%;
             top: 0;
-            z-index: 999;
-            transition: all 0.3s ease;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
-
-        .navbar {
+        
+        header.scrolled {
+            padding: 15px 0;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
         }
-
+        
         .logo {
             display: flex;
             align-items: center;
-            height: 60px;
+            gap: 15px;
+            text-decoration: none;
         }
-
+        
         .logo img {
-            height: 100%;
+            height: 50px;
             width: auto;
-            max-width: 200px;
+            border-radius: var(--radius-full);
+            box-shadow: var(--shadow-sm);
         }
-
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-main {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-sub {
+            font-size: 0.75rem;
+            color: var(--accent-orange);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
         .nav-links {
             display: flex;
             list-style: none;
+            gap: 35px;
         }
-
-        .nav-links li {
-            margin-left: 30px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
+        
+        .nav-link {
             position: relative;
-            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--dark-gray);
+            padding: 8px 0;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            text-decoration: none;
         }
-
-        .nav-links a::after {
+        
+        .nav-link::after {
             content: '';
             position: absolute;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            bottom: -5px;
+            bottom: 0;
             left: 0;
-            transition: width 0.3s ease;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-accent);
+            border-radius: 3px;
+            transition: var(--transition);
         }
-
-        .nav-links a:hover::after {
+        
+        .nav-link:hover {
+            color: var(--primary-blue);
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
             width: 100%;
         }
-
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--dark);
+        
+        .language-selector {
+            display: flex;
+            background: var(--light-gray);
+            padding: 5px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-sm);
         }
-
+        
+        .lang-btn {
+            padding: 8px 25px;
+            border-radius: 50px;
+            border: none;
+            background: transparent;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--dark-gray);
+            font-family: 'Open Sans', 'Noto Sans KR', sans-serif;
+        }
+        
+        .lang-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        /* ===== Hero Section (2-kod asosida) ===== */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1335&q=80') no-repeat center center/cover;
             display: flex;
             align-items: center;
-            text-align: center;
-            color: white;
-            padding: 100px 0 60px;
             position: relative;
+            padding-top: 80px;
             overflow: hidden;
         }
-
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-            padding: 20px;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            animation: fadeInUp 1s ease;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-            animation: fadeInUp 1.5s ease;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 400;
-            line-height: 1.8;
-        }
-
-        .booking-form {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            max-width: 600px;
-            margin: 40px auto 0;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            animation: fadeInUp 2s ease;
-        }
-
-        .booking-form h3 {
-            color: var(--dark);
-            margin-bottom: 10px;
-            text-align: center;
-            font-size: 1.5rem;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .form-row {
-            display: flex;
-            gap: 15px;
-        }
-
-        .form-group {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group label {
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--dark);
-            text-align: left;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .form-input {
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            font-size: 1rem;
-            background: white;
-            color: var(--dark);
-            transition: border 0.3s ease;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .form-input:focus {
-            border-color: var(--primary);
-            outline: none;
-        }
-
-        .phone-input-container {
-            position: relative;
-        }
-
-        .phone-prefix {
+        
+        .hero-background {
             position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text);
-            font-weight: 500;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -1;
         }
-
-        .phone-input {
-            padding-left: 60px !important;
+        
+        .hero-content {
+            max-width: 800px;
+            color: white;
         }
-
-        .error-message {
-            color: #e74c3c;
-            font-size: 0.8rem;
-            margin-top: 5px;
-            display: none;
+        
+        .hero-title {
+            margin-bottom: 25px;
+            animation: fadeInUp 1s ease-out;
         }
-
-        /* Uzbekistan Regions Section */
-        .uzbekistan {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        
+        .hero-subtitle {
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out 0.2s forwards;
+            opacity: 0;
         }
-
-        .regions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            animation: fadeInUp 1s ease-out 0.4s forwards;
+            opacity: 0;
         }
-
-        .region-card {
-            background: white;
-            border-radius: 15px;
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-accent);
+            color: white;
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* ===== Destinations Section (2-kod asosida) ===== */
+        .destinations {
+            background: var(--light-gray);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            color: var(--dark-blue);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-accent);
+            border-radius: 2px;
+        }
+        
+        .destinations-slider {
+            position: relative;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        
+        .destinations-container {
+            display: flex;
+            gap: 30px;
+            transition: transform 0.5s ease;
+            padding: 10px;
+        }
+        
+        .destination-card {
+            min-width: calc(33.333% - 20px);
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
             position: relative;
         }
-
-        .region-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .region-card img {
-            width: 100%;
+        
+        .destination-image {
             height: 250px;
+            width: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
         }
-
-        .region-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .region-info {
+        
+        .destination-content {
             padding: 25px;
         }
-
-        .region-info h3 {
-            font-size: 1.5rem;
-            color: var(--dark);
+        
+        .destination-title {
+            color: var(--primary-blue);
             margin-bottom: 10px;
-            font-family: 'Montserrat', sans-serif;
         }
-
-        .region-info p {
-            color: var(--text);
-            margin-bottom: 15px;
-            line-height: 1.6;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .region-features {
+        
+        .destination-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 8px;
+            margin: 15px 0;
         }
-
-        .feature-tag {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        
+        .tag {
+            background: var(--light-gray);
+            color: var(--primary-blue);
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .slider-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-full);
+            background: white;
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .slider-btn:hover {
+            background: var(--gradient-primary);
             color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-family: 'Montserrat', sans-serif;
+            border-color: transparent;
+            transform: scale(1.1);
         }
-
+        
+        /* ===== Services Section (1-kod asosida) ===== */
         .services {
-            padding: 100px 0;
-            background-color: var(--light);
+            background: white;
         }
-
+        
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 45px;
+            margin-top: 60px;
         }
-
+        
         .service-card {
             background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 45px 35px;
+            border-radius: var(--radius-lg);
             text-align: center;
-            padding: 40px 25px;
-        }
-
-        .service-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 2rem;
-        }
-
-        .service-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .service-content p {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .destinations {
-            padding: 100px 0;
-        }
-
-        .destinations-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .destination-card {
-            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 2px solid transparent;
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            position: relative;
-            transition: transform 0.3s ease;
-            cursor: pointer;
         }
-
-        .destination-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .destination-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .destination-card:hover img {
-            transform: scale(1.1);
-        }
-
-        .destination-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-            color: white;
-            padding: 30px 20px 20px;
-        }
-
-        .destination-info h3 {
-            margin-bottom: 10px;
-            font-size: 1.4rem;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .destination-info p {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .rating {
-            color: var(--gold);
-            margin-bottom: 10px;
-        }
-
-        .contact {
-            padding: 100px 0;
-            background-color: var(--light);
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
-        }
-
-        .contact-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--dark);
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .contact-details {
-            margin-bottom: 30px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .contact-item i {
-            width: 50px;
-            height: 50px;
-            background: var(--light);
-            color: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            font-size: 1.2rem;
-        }
-
-        .contact-form .form-group {
-            margin-bottom: 20px;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border 0.3s ease;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: var(--primary);
-            outline: none;
-        }
-
-        .contact-form textarea {
-            height: 150px;
-            resize: vertical;
-        }
-
-        .success-message {
-            display: none;
-            text-align: center;
-            padding: 20px;
-            background: #d4edda;
-            color: #155724;
-            border-radius: 10px;
-            margin-top: 20px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .check-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            color: var(--accent);
-        }
-
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 70px 0 20px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 10px;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .footer-column h3::after {
+        
+        .service-card::before {
             content: '';
             position: absolute;
+            top: 0;
             left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 2px;
-            background: var(--secondary);
+            width: 100%;
+            height: 6px;
+            background: var(--gradient-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
         }
-
-        .footer-links {
-            list-style: none;
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            border-color: rgba(30, 136, 229, 0.1);
+            box-shadow: var(--shadow-heavy);
         }
-
-        .footer-links li {
-            margin-bottom: 12px;
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
         }
-
-        .footer-links a {
-            color: #bbb;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-links a {
+        
+        .service-icon {
+            width: 90px;
+            height: 90px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
+            margin: 0 auto 30px;
+            font-size: 2.5rem;
             color: white;
-            transition: all 0.3s;
+            transition: var(--transition);
+            box-shadow: var(--shadow-medium);
         }
-
-        .social-links a:hover {
-            background: var(--secondary);
-            transform: translateY(-5px);
+        
+        .service-card:hover .service-icon {
+            transform: rotate(20deg) scale(1.15);
+            background: var(--gradient-accent);
         }
-
+        
+        .service-title {
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        /* ===== About Section (1-kod asosida) ===== */
+        .about {
+            background: linear-gradient(135deg, var(--light-beige) 0%, #FFECB3 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-text {
+            position: relative;
+        }
+        
+        .about-text h2 {
+            color: var(--dark-blue);
+            font-size: 3.2rem;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .about-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 120px;
+            height: 4px;
+            background: var(--gradient-accent);
+            border-radius: 2px;
+        }
+        
+        .experience-badge {
+            display: inline-block;
+            background: var(--gradient-accent);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow-sm);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .stat-item {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-orange);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+        
+        .stat-text {
+            color: var(--dark-gray);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .about-image {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            transition: var(--transition);
+        }
+        
+        .about-image:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* ===== Contact Section (1-kod asosida - Elektron pochta o'rniga telefon bilan) ===== */
+        .contact {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 70px;
+        }
+        
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 35px;
+            font-size: 2.5rem;
+        }
+        
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--accent-orange);
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+        
+        .contact-detail:hover .contact-icon {
+            background: var(--gradient-accent);
+            transform: rotate(15deg);
+        }
+        
+        .contact-text h4 {
+            color: white;
+            margin-bottom: 8px;
+            font-size: 1.3rem;
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(15px);
+            padding: 45px;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+        
+        .form-group {
+            margin-bottom: 30px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 12px;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 18px 25px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius-md);
+            color: white;
+            font-family: inherit;
+            font-size: 1.05rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-orange);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
+        }
+        
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* ===== Footer (1-kod asosida) ===== */
+        footer {
+            background: var(--dark-blue);
+            color: white;
+            padding: 90px 0 35px;
+            position: relative;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 25px;
+        }
+        
+        .footer-logo span {
+            color: var(--accent-orange);
+        }
+        
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 18px;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: var(--gradient-accent);
+            transform: translateY(-8px) rotate(10deg);
+        }
+        
+        .footer-links h4,
+        .footer-contact h4 {
+            color: white;
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+            position: relative;
+            padding-bottom: 12px;
+        }
+        
+        .footer-links h4::after,
+        .footer-contact h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-accent);
+            border-radius: 2px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.85);
+            transition: var(--transition);
+            display: inline-block;
+            font-size: 1.05rem;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-orange);
+            transform: translateX(8px);
+        }
+        
+        .footer-contact p {
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.05rem;
+        }
+        
+        .footer-contact i {
+            color: var(--accent-orange);
+            width: 25px;
+            font-size: 1.2rem;
+        }
+        
         .copyright {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: #bbb;
-            font-family: 'Poppins', sans-serif;
+            padding-top: 35px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
         }
-
+        
+        /* ===== Language Content ===== */
+        .lang-content {
+            display: none;
+        }
+        
+        .lang-content.active {
+            display: block;
+            animation: fadeIn 0.6s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* ===== Animations ===== */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -683,813 +871,830 @@
                 transform: translateY(0);
             }
         }
-
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .form-row {
-                flex-direction: column;
-            }
-            
-            .regions-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        
+        /* ===== Responsive Design ===== */
+        @media (max-width: 1200px) {
+            .destination-card {
+                min-width: calc(50% - 20px);
             }
         }
-
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
+        
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
             }
-
+            
+            .about-image {
+                order: -1;
+            }
+            
+            .contact-content {
+                gap: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .hero-title { font-size: 3rem; }
+            
             .nav-links {
                 position: fixed;
-                top: 80px;
+                top: 0;
                 left: -100%;
                 width: 100%;
-                height: calc(100vh - 80px);
+                height: 100vh;
                 background: white;
                 flex-direction: column;
                 align-items: center;
-                justify-content: flex-start;
-                padding-top: 50px;
-                transition: left 0.3s ease;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                justify-content: center;
+                gap: 35px;
+                transition: var(--transition);
+                box-shadow: var(--shadow-xl);
+                z-index: 999;
             }
-
+            
             .nav-links.active {
                 left: 0;
             }
-
-            .nav-links li {
-                margin: 20px 0;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-                margin-bottom: 30px;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
+            
+            .mobile-menu-btn {
+                display: block;
             }
             
-            .logo img {
-                height: 45px;
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
             }
             
-            .booking-form {
-                margin-top: 20px;
-                padding: 20px;
+            .destination-card {
+                min-width: calc(100% - 20px);
             }
             
-            .language-switcher {
-                top: 80px;
-                right: 10px;
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
             
-            .lang-btn {
-                padding: 10px 15px;
-                font-size: 0.9rem;
+            .service-card {
+                padding: 35px 25px;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form {
+                padding: 30px 25px;
             }
         }
-
+        
         @media (max-width: 576px) {
-            .hero {
-                padding: 90px 0 40px;
+            .section-padding {
+                padding: 70px 0;
             }
             
-            .hero h1 {
-                font-size: 1.8rem;
+            .hero-title {
+                font-size: 2.2rem;
             }
-
-            .section-title h2 {
-                font-size: 1.8rem;
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
             }
-
+            
             .btn {
-                padding: 12px 25px;
+                padding: 14px 30px;
+                font-size: 1rem;
             }
             
-            .booking-form {
-                padding: 15px;
+            .about-text h2 {
+                font-size: 2.5rem;
             }
             
-            .hero-content {
-                padding: 10px;
-            }
-            
-            .region-card {
-                margin: 0 10px;
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Language Switcher -->
-    <div class="language-switcher">
-        <button class="lang-btn active" id="uzBtn">
-            <i class="fas fa-globe-asia"></i>
-            <span>O'zbek</span>
-        </button>
-        <button class="lang-btn" id="krBtn">
-            <i class="fas fa-globe-asia"></i>
-            <span>한국어</span>
-        </button>
-    </div>
-
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <a href="#" class="logo">
-                    <img src="logo.png" alt="BEKH TOUR">
-                </a>
-                <ul class="nav-links">
-                    <li><a href="#home" data-uz="Bosh Sahifa" data-kr="홈페이지">Bosh Sahifa</a></li>
-                    <li><a href="#uzbekistan" data-uz="O'zbekiston" data-kr="우즈베키스탄">O'zbekiston</a></li>
-                    <li><a href="#destinations" data-uz="Yo'nalishlar" data-kr="목적지">Yo'nalishlar</a></li>
-                    <li><a href="#services" data-uz="Xizmatlar" data-kr="서비스">Xizmatlar</a></li>
-                    <li><a href="#contact" data-uz="Aloqa" data-kr="연락처">Aloqa</a></li>
+    <!-- Header (1-kod asosida) -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#home" class="logo">
+                <img src="https://raw.githubusercontent.com/AlijonovAlisher/BEKH-TOUR/main/logo.png" alt="Bekh Tour Logo">
+                <div class="logo-text">
+                    <div class="logo-main">BEKH TOUR</div>
+                    <div class="logo-sub">Sayohat & Sarguzasht</div>
+                </div>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" class="nav-link active">
+                        <span class="lang-content active" data-lang="uz">Bosh Sahifa</span>
+                        <span class="lang-content" data-lang="ko">홈</span>
+                    </a></li>
+                    <li><a href="#destinations" class="nav-link">
+                        <span class="lang-content active" data-lang="uz">Yo'nalishlar</span>
+                        <span class="lang-content" data-lang="ko">여행지</span>
+                    </a></li>
+                    <li><a href="#services" class="nav-link">
+                        <span class="lang-content active" data-lang="uz">Xizmatlar</span>
+                        <span class="lang-content" data-lang="ko">서비스</span>
+                    </a></li>
+                    <li><a href="#about" class="nav-link">
+                        <span class="lang-content active" data-lang="uz">Biz Haqimizda</span>
+                        <span class="lang-content" data-lang="ko">회사 소개</span>
+                    </a></li>
+                    <li><a href="#contact" class="nav-link">
+                        <span class="lang-content active" data-lang="uz">Bog'lanish</span>
+                        <span class="lang-content" data-lang="ko">연락처</span>
+                    </a></li>
                 </ul>
-                <div class="menu-toggle">
-                    <i class="fas fa-bars"></i>
+                
+                <div class="language-selector">
+                    <button class="lang-btn active" data-lang="uz">O'Z</button>
+                    <button class="lang-btn" data-lang="ko">한국어</button>
                 </div>
             </nav>
         </div>
     </header>
 
+    <!-- Hero Section (2-kod asosida) -->
     <section class="hero" id="home">
+        <div class="hero-background"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">
+                <span class="lang-content active" data-lang="uz">Dunyoni Biz Bilan Kashf Eting</span>
+                <span class="lang-content" data-lang="ko">우리와 함께 세계를 발견하세요</span>
+            </h1>
+            <p class="hero-subtitle">
+                <span class="lang-content active" data-lang="uz">Eng ajoyib sayohatlarni taklif qiluvchi tur operatori. Xotiralaringizni biz bilan boyiting! Yurtimizning go'zal joylarini biz bilan o'rganing.</span>
+                <span class="lang-content" data-lang="ko">가장 놀라운 여행을 제공하는 여행사. 우리와 함께 추억을 풍요롭게 하세요! 우리나라의 아름다운 장소를 우리와 함께 배우세요.</span>
+            </p>
+            <div class="hero-buttons">
+                <a href="#destinations" class="btn btn-primary">
+                    <span class="lang-content active" data-lang="uz">Sayohatni Boshlash</span>
+                    <span class="lang-content" data-lang="ko">여행 시작하기</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <span class="lang-content active" data-lang="uz">Bog'lanish</span>
+                    <span class="lang-content" data-lang="ko">문의하기</span>
+                    <i class="fas fa-phone-alt"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section (2-kod asosida) -->
+    <section class="destinations section-padding" id="destinations">
         <div class="container">
-            <div class="hero-content">
-                <h1 data-uz="Dunyo Bo'ylab Sarguzashtli Sayohatlar" data-kr="세계 모험 여행">Dunyo Bo'ylab Sarguzashtli Sayohatlar</h1>
-                <p data-uz="Biz bilan dunyoning noyob go'zalliklarini kashf eting. Jazirama plyajlar, baland tog'lar va boy madaniyatlar sizni kutmoqda." data-kr="우리와 함께 세계의 독특한 아름다움을 발견하세요. 뜨거운 해변, 높은 산맥 및 풍부한 문화가 여러분을 기다립니다.">Biz bilan dunyoning noyob go'zalliklarini kashf eting. Jazirama plyajlar, baland tog'lar va boy madaniyatlar sizni kutmoqda.</p>
-                <a href="#destinations" class="btn" data-uz="Sayohatni Boshlang" data-kr="여행 시작하기">Sayohatni Boshlang</a>
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="lang-content active" data-lang="uz">O'zbekiston bo'yicha <br> Mashhur Yo'nalishlar</span>
+                    <span class="lang-content" data-lang="ko">우즈베키스탄의 인기 여행지</span>
+                </h2>
+            </div>
+            
+            <div class="destinations-slider">
+                <div class="destinations-container" id="destinationsContainer">
+                    <!-- Destination cards will be added here by JavaScript -->
+                </div>
                 
-                <div class="booking-form">
-                    <h3 data-uz="Sayohatni bron qilish" data-kr="여행 예약">Sayohatni bron qilish</h3>
-                    <form id="bookingForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="country" data-uz="Davlat" data-kr="국가">Davlat</label>
-                                <select id="country" class="form-input" required>
-                                    <option value="" data-uz="Tanlang" data-kr="선택">Tanlang</option>
-                                    <option value="Sharm El Sheikh (Misr)">Sharm El Sheikh (Misr)</option>
-                                    <option value="Dubay (BAA)">Dubay (BAA)</option>
-                                    <option value="Qatar">Qatar</option>
-                                    <option value="Turkiya">Turkiya</option>
-                                    <option value="Azerbayjon">Azerbayjon</option>
-                                    <option value="Gruziya">Gruziya</option>
-                                    <option value="Vyetnam">Vyetnam</option>
-                                    <option value="Xitoy">Xitoy</option>
-                                    <option value="Bali (Indoneziya)">Bali (Indoneziya)</option>
-                                    <option value="Malayziya">Malayziya</option>
-                                    <option value="Tailand">Tailand</option>
-                                    <option value="Qozog'iston">Qozog'iston</option>
-                                    <option value="Turkmaniston">Turkmaniston</option>
-                                    <option value="Maldiv orollari">Maldiv orollari</option>
-                                    <option value="Rossiya">Rossiya</option>
-                                    <option value="Dengizda Kruizlar">Dengizda Kruizlar</option>
-                                    <option value="Hindiston">Hindiston</option>
-                                    <option value="Mavrikiy">Mavrikiy</option>
-                                    <option value="Shri-Lanka">Shri-Lanka</option>
-                                    <option value="Singapur">Singapur</option>
-                                    <option value="Boshqa davlat">Boshqa davlat</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="people" data-uz="Kishilar soni" data-kr="인원 수">Kishilar soni</label>
-                                <input type="number" id="people" class="form-input" min="1" max="20" placeholder="1" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="days" data-uz="Sayohat kuni" data-kr="여행 일수">Sayohat kuni</label>
-                                <input type="number" id="days" class="form-input" min="1" max="30" placeholder="5" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone" data-uz="Telefon raqami" data-kr="전화번호">Telefon raqami</label>
-                                <div class="phone-input-container">
-                                    <span class="phone-prefix">+998</span>
-                                    <input type="tel" id="phone" class="form-input phone-input" placeholder="90 123 45 67" required maxlength="12">
-                                </div>
-                                <div class="error-message" id="phoneError" data-uz="Iltimos, to'liq telefon raqamini kiriting (9 ta raqam)" data-kr="전화번호 9자리를 입력해주세요">Iltimos, to'liq telefon raqamini kiriting (9 ta raqam)</div>
-                            </div>
-                        </div>
-                        <br>
-                        <button type="submit" class="btn" style="width: 100%;">
-                            <i class="fas fa-paper-plane"></i> 
-                            <span data-uz="Arizani Yuborish" data-kr="신청서 보내기">Arizani Yuborish</span>
-                        </button>
-                    </form>
-                    <div class="success-message" id="successMessage">
-                        <div class="check-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <p data-uz="Arizangiz yuborildi!" data-kr="신청서가 전송되었습니다!">Arizangiz yuborildi!</p>
-                    </div>
+                <div class="slider-nav">
+                    <button class="slider-btn" id="prevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-btn" id="nextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="uzbekistan" id="uzbekistan">
+    <!-- Services Section (1-kod asosida) -->
+    <section class="services section-padding" id="services">
         <div class="container">
-            <div class="section-title">
-                <h2 data-uz="O'zbekistonning Go'zal Joylari" data-kr="우즈베키스탄의 아름다운 장소">O'zbekistonning Go'zal Joylari</h2>
-                <p data-uz="Buyuk Ipak Yo'li bo'ylab joylashgan ajoyib tarixiy va madaniy meros" data-kr="실크로드에 위치한 놀라운 역사적 및 문화 유산">Buyuk Ipak Yo'li bo'ylab joylashgan ajoyib tarixiy va madaniy meros</p>
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="lang-content active" data-lang="uz">Bizning Xizmatlarimiz</span>
+                    <span class="lang-content" data-lang="ko">우리의 서비스</span>
+                </h2>
             </div>
-            <div class="regions-grid">
-                <div class="region-card">
-                    <img src="00.jpg" alt="Samarqand">
-                    <div class="region-info">
-                        <h3>Samarqand</h3>
-                        <p data-uz="Sharqning marvaridi, Amir Temur davlatining poytaxti. Registon maydoni, Shohi Zinda va Bibixonim masjidi bilan mashhur." data-kr="동양의 진주, 티무르 제국의 수도. 레기스탄 광장, 샤히 진다 및 비비 하눔 모스크로 유명합니다.">Sharqning marvaridi, Amir Temur davlatining poytaxti. Registon maydoni, Shohi Zinda va Bibixonim masjidi bilan mashhur.</p>
-                    </div>
-                </div>
-                <div class="region-card">
-                    <img src="01.jpg" alt="Buxoro">
-                    <div class="region-info">
-                        <h3>Buxoro</h3>
-                        <p data-uz="Qadimiy madaniyat markazi. Ark qal'asi, Poi Kalon va Labi Hovuz majmuasi bilan mashhur." data-kr="고대 문화 중심지. 아크 요새, 포이 칼론 및 라비 하우즈 단지로 유명합니다.">Qadimiy madaniyat markazi. Ark qal'asi, Poi Kalon va Labi Hovuz majmuasi bilan mashhur.</p>
-                    </div>
-                </div>
-                <div class="region-card">
-                    <img src="02.jpg" alt="Xiva">
-                    <div class="region-info">
-                        <h3>Xiva</h3>
-                        <p data-uz="Ichon-Qal'a qadimiy shaharchasi butunlay saqlanib qolgan yagona shahar. O'zining noyob me'morchiligi va qadimiy ko'chalari bilan ajralib turadi." data-kr="이찬 칼라 고대 도시는 완전히 보존된 유일한 도시입니다. 독특한 건축과 고대 거리로 유명합니다.">Ichon-Qal'a qadimiy shaharchasi butunlay saqlanib qolgan yagona shahar. O'zining noyob me'morchiligi va qadimiy ko'chalari bilan ajralib turadi.</p>
-                    </div>
-                </div>
-                <div class="region-card">
-                    <img src="03.jpg" alt="Toshkent">
-                    <div class="region-info">
-                        <h3>Toshkent</h3>
-                        <p data-uz="O'zbekistonning zamonaviy poytaxti. Hazrati Imom majmuasi, Mustaqillik maydoni va Amir Temur muzeyi bilan mashhur." data-kr="우즈베키스탄의 현대 수도. 하즈라티 이맘 단지, 독립 광장 및 아미르 테무르 박물관으로 유명합니다.">O'zbekistonning zamonaviy poytaxti. Hazrati Imom majmuasi, Mustaqillik maydoni va Amir Temur muzeyi bilan mashhur.</p>
-                    </div>
-                </div>
-                <div class="region-card">
-                    <img src="04.jpg" alt="Farg'ona">
-                    <div class="region-info">
-                        <h3>Farg'ona vodiysi</h3>
-                        <p data-uz="Tabiatning ajoyib go'zalligi, unumdor yerlar va an'anaviy hunarmandchilik markazi. Marg'ilon atlaslari va Rishton kulollari bilan mashhur." data-kr="자연의 놀라운 아름다움, 비옥한 땅 및 전통 공예 중심지. 마르길란 아틀라스 및 리시탄 도기로 유명합니다.">Tabiatning ajoyib go'zalligi, unumdor yerlar va an'anaviy hunarmandchilik markazi. Marg'ilon atlaslari va Rishton kulollari bilan mashhur.</p>
-                    </div>
-                </div>
-                <div class="region-card">
-                    <img src="05.jpg" alt="Shahrisabz">
-                    <div class="region-info">
-                        <h3>Shahrisabz, Qashqadaryo</h3>
-                        <p data-uz="Amir Temurning vatani. "Oq saroy" va "Dorut Tilovat" majmualari bilan mashhur." data-kr="티무르 대제의 고향. "아크 사로이" 및 "다루트 틸로밧" 단지로 유명합니다.">Amir Temurning vatani. "Oq saroy" va "Dorut Tilovat" majmualari bilan mashhur.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2 data-uz="Bizning Xizmatlar" data-kr="우리의 서비스">Bizning Xizmatlar</h2>
-                <p data-uz="Biz sizga dunyo bo'ylab eng yaxshi sayohat tajribasini taqdim etamiz" data-kr="우리는 전 세계 최고의 여행 경험을 제공합니다">Biz sizga dunyo bo'ylab eng yaxshi sayohat tajribasini taqdim etamiz</p>
-            </div>
+            
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-hotel"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3 data-uz="Mehmonxona Broni" data-kr="호텔 예약">Mehmonxona Broni</h3>
-                        <p data-uz="Dunyoning eng yaxshi mehmonxonalarida qulay va arzon turar joyni taqdim etamiz." data-kr="세계 최고의 호텔에서 편안하고 저렴한 숙소를 제공합니다.">Dunyoning eng yaxshi mehmonxonalarida qulay va arzon turar joyni taqdim etamiz.</p>
-                    </div>
-                </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-plane"></i>
                     </div>
-                    <div class="service-content">
-                        <h3 data-uz="Aviachiptalar" data-kr="항공권">Aviachiptalar</h3>
-                        <p data-uz="Eng arzon va qulay aviachiptalarni topishda yordam beramiz." data-kr="가장 저렴하고 편리한 항공권 찾기를 도와드립니다.">Eng arzon va qulay aviachiptalarni topishda yordam beramiz.</p>
-                    </div>
+                    <h3 class="service-title">
+                        <span class="lang-content active" data-lang="uz">Aviabilettlar</span>
+                        <span class="lang-content" data-lang="ko">항공권</span>
+                    </h3>
+                    <p>
+                        <span class="lang-content active" data-lang="uz">Eng qulay va arzon aviachiptalar. Dunyoning istalgan nuqtasiga parvozlar.</span>
+                        <span class="lang-content" data-lang="ko">가장 편리하고 저렴한 항공권. 세계 어느 곳으로든 비행.</span>
+                    </p>
                 </div>
+                
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-umbrella-beach"></i>
+                        <i class="fas fa-hotel"></i>
                     </div>
-                    <div class="service-content">
-                        <h3 data-uz="Tur Paketlari" data-kr="여행 패키지">Tur Paketlari</h3>
-                        <p data-uz="Har qanday byudjet va didga mos tur paketlarini taklif etamiz." data-kr="모든 예산과 취향에 맞는 여행 패키지를 제공합니다.">Har qanday byudjet va didga mos tur paketlarini taklif etamiz.</p>
+                    <h3 class="service-title">
+                        <span class="lang-content active" data-lang="uz">Mehmonxonalar</span>
+                        <span class="lang-content" data-lang="ko">호텔</span>
+                    </h3>
+                    <p>
+                        <span class="lang-content active" data-lang="uz">Har qanday byudjet uchun turar joy. 5 yulduzli mehmonxonalardan boshlab gostilargacha.</span>
+                        <span class="lang-content" data-lang="ko">모든 예산에 맞는 숙소. 5성급 호텔부터 게스트하우스까지.</span>
+                    </p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
                     </div>
+                    <h3 class="service-title">
+                        <span class="lang-content active" data-lang="uz">Transport</span>
+                        <span class="lang-content" data-lang="ko">교통</span>
+                    </h3>
+                    <p>
+                        <span class="lang-content active" data-lang="uz">Shaxsiy transport va guruh sayohatlari. Haydovchilar bilan mashinalar va avtobuslar.</span>
+                        <span class="lang-content" data-lang="ko">개인 교통 및 단체 여행. 운전사와 함께하는 차량 및 버스.</span>
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="destinations" id="destinations">
+    <!-- About Section (1-kod asosida) -->
+    <section class="about section-padding" id="about">
         <div class="container">
-            <div class="section-title">
-                <h2 data-uz="Mashhur Yo'nalishlar" data-kr="인기 목적지">Mashhur Yo'nalishlar</h2>
-                <p data-uz="Dunyoning eng jozibador va mashhur sayohat yo'nalishlari" data-kr="세계에서 가장 매력적이고 인기 있는 여행 목적지">Dunyoning eng jozibador va mashhur sayohat yo'nalishlari</p>
-            </div>
-            <div class="destinations-grid">
-                <div class="destination-card">
-                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Dubai">
-                    <div class="destination-info">
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
+            <div class="about-content">
+                <div class="about-text">
+                    <span class="experience-badge">
+                        <span class="lang-content active" data-lang="uz">15+ Yillik Tajriba</span>
+                        <span class="lang-content" data-lang="ko">15년 이상 경험</span>
+                    </span>
+                    <h2>
+                        <span class="lang-content active" data-lang="uz">Biz Haqimizda</span>
+                        <span class="lang-content" data-lang="ko">회사 소개</span>
+                    </h2>
+                    <p style="font-size: 1.2rem; font-weight: 500; color: var(--dark-blue);">
+                        <span class="lang-content active" data-lang="uz">O'zbekistonning yetakchi sayyohlik kompaniyasi</span>
+                        <span class="lang-content" data-lang="ko">우즈베키스탄의 선도적인 여행사</span>
+                    </p>
+                    <p>
+                        <span class="lang-content active" data-lang="uz">Biz 2008-yildan beri mijozlarimizga eng yaxshi sayohat tajribasini taqdim etib kelmoqdamiz. Har bir sayohatni unutilmas va qulay qilish - bu bizning asosiy maqsadimiz.</span>
+                        <span class="lang-content" data-lang="ko">우리는 2008년부터 고객에게 최고의 여행 경험을 제공해 왔습니다. 모든 여행을 잊지 못할 편안한 경험으로 만드는 것이 우리의 주요 목표입니다.</span>
+                    </p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-text">
+                                <span class="lang-content active" data-lang="uz">Yillik Tajriba</span>
+                                <span class="lang-content" data-lang="ko">경험 년수</span>
+                            </div>
                         </div>
-                        <h3>Dubai, BAA</h3>
-                        <p data-uz="Zamonaviy arxitektura va hashamatli hayot" data-kr="현대 건축 및 호화로운 생활">Zamonaviy arxitektura va hashamatli hayot</p>
+                        <div class="stat-item">
+                            <div class="stat-number">5,000+</div>
+                            <div class="stat-text">
+                                <span class="lang-content active" data-lang="uz">Mamnun Mijozlar</span>
+                                <span class="lang-content" data-lang="ko">만족 고객</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-text">
+                                <span class="lang-content active" data-lang="uz">Yo'nalishlar</span>
+                                <span class="lang-content" data-lang="ko">여행지</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-text">
+                                <span class="lang-content active" data-lang="uz">Qo'llab-quvvatlash</span>
+                                <span class="lang-content" data-lang="ko">지원</span>
+                            </div>
+                        </div>
                     </div>
+                    
+                    <p style="font-style: italic; color: var(--dark-blue); opacity: 0.9;">
+                        <span class="lang-content active" data-lang="uz">"Har yili minglab mijozlarimiz biz bilan dunyoning turli burchaklariga sayohat qilishadi. Biz ularning xavfsizligi va quvonchi uchun mas'ulmiz."</span>
+                        <span class="lang-content" data-lang="ko">"매년 수천 명의 고객들이 우리와 함께 세계 각지로 여행합니다. 우리는 그들의 안전과 기쁨에 책임이 있습니다."</span>
+                    </p>
+                    
+                    <a href="#contact" class="btn btn-primary" style="margin-top: 30px;">
+                        <span class="lang-content active" data-lang="uz">Biz Bilan Bog'lanish</span>
+                        <span class="lang-content" data-lang="ko">연락하기</span>
+                        <i class="fas fa-handshake"></i>
+                    </a>
                 </div>
-                <div class="destination-card">
-                    <img src="https://images.unsplash.com/photo-1528127269322-539801943592?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Turkiya">
-                    <div class="destination-info">
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h3>Antaliya, Turkiya</h3>
-                        <p data-uz="Jazirama plyajlar va tarixiy joylar" data-kr="뜨거운 해변 및 역사적 장소">Jazirama plyajlar va tarixiy joylar</p>
-                    </div>
-                </div>
-                <div class="destination-card">
-                    <img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Vyetnam">
-                    <div class="destination-info">
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                        <h3>Ha Long Bay, Vyetnam</h3>
-                        <p data-uz="Tabiatning ajoyib mo'jizasi" data-kr="자연의 놀라운 기적">Tabiatning ajoyib mo'jizasi</p>
-                    </div>
-                </div>
-                <div class="destination-card">
-                    <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1333&q=80" alt="Sharm El Sheikh">
-                    <div class="destination-info">
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>Sharm El Sheikh, Misr</h3>
-                        <p data-uz="Qizil dengizning ajoyib plyajlari" data-kr="홍해의 멋진 해변">Qizil dengizning ajoyib plyajlari</p>
-                    </div>
-                </div>
-                <div class="destination-card">
-                    <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Malayziya">
-                    <div class="destination-info">
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                        <h3>Kuala Lumpur, Malayziya</h3>
-                        <p data-uz="Zamonaviy va an'anaviy arxitektura" data-kr="현대 및 전통 건축">Zamonaviy va an'anaviy arxitektura</p>
-                    </div>
-                </div>
-                <div class="destination-card">
-                    <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Tailand">
-                    <div class="destination-info">
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h3>Phuket, Tailand</h3>
-                        <p data-uz="Jannatga o'xshash orollar" data-kr="천국 같은 섬">Jannatga o'xshash orollar</p>
-                    </div>
+                
+                <div class="about-image">
+                    <img src="https://raw.githubusercontent.com/AlijonovAlisher/BEKH-TOUR/main/jamoa.jpeg" alt="Bekh Tour Jamoa">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2 data-uz="Biz bilan Bog'laning" data-kr="연락하기">Biz bilan Bog'laning</h2>
-                <p data-uz="Savollaringiz bormi? Bizga xabar yuboring va biz tez orada siz bilan bog'lanamiz" data-kr="질문이 있으신가요? 메시지를 보내주시면 빠른 시일 내에 연락드리겠습니다">Savollaringiz bormi? Bizga xabar yuboring va biz tez orada siz bilan bog'lanamiz</p>
+    <!-- Contact Section (1-kod asosida - Elektron pochta o'rniga telefon bilan) -->
+    <section class="contact section-padding" id="contact">
+        <div class="container contact-container">
+            <div class="section-header">
+                <h2 class="section-title" style="color: white;">
+                    <span class="lang-content active" data-lang="uz">Bog'lanish</span>
+                    <span class="lang-content" data-lang="ko">연락처</span>
+                </h2>
+                <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.95); text-align: center; margin-bottom: 50px;">
+                    <span class="lang-content active" data-lang="uz">Sayohat rejangizni muhokama qilish yoki savollaringiz bo'lsa, biz bilan bog'lanishingiz mumkin</span>
+                    <span class="lang-content" data-lang="ko">여행 계획을 논의하거나 질문이 있으시면 저희에게 연락하실 수 있습니다</span>
+                </p>
             </div>
-            <div class="contact-container">
+            
+            <div class="contact-content">
                 <div class="contact-info">
-                    <h3 data-uz="Aloqa Ma'lumotlari" data-kr="연락처 정보">Aloqa Ma'lumotlari</h3>
+                    <h3>
+                        <span class="lang-content active" data-lang="uz">Biz Bilan Aloqa</span>
+                        <span class="lang-content" data-lang="ko">연락 정보</span>
+                    </h3>
+                    
                     <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4 data-uz="Manzil" data-kr="주소">Manzil</h4>
-                                <p data-uz="112 Buyuk Ipak Yo'li, Samarqand, O'zbekiston" data-kr="112 대 실크로드, 사마르칸트, 우즈베키스탄">112 Buyuk Ipak Yo'li, Samarqand, O'zbekiston</p>
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>
+                                    <span class="lang-content active" data-lang="uz">Manzil</span>
+                                    <span class="lang-content" data-lang="ko">주소</span>
+                                </h4>
+                                <p>Samarqand shahri, Buyuk Ipak Yo'li. 112b</p>
                             </div>
                         </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h4 data-uz="Telefon" data-kr="전화">Telefon</h4>
-                                <p>+998(90)445 12-11</p>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>
+                                    <span class="lang-content active" data-lang="uz">Telefon</span>
+                                    <span class="lang-content" data-lang="ko">전화번호</span>
+                                </h4>
+                                <p>+998 90 271 3898</p>
                             </div>
                         </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <p>info@bekhtour.uz</p>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>
+                                    <span class="lang-content active" data-lang="uz">Elektron Pochta</span>
+                                    <span class="lang-content" data-lang="ko">이메일</span>
+                                </h4>
+                                <p>Heebeka@gmail.com</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/bekhtour.uz/"><i class="fab fa-instagram"></i></a>
-                        <a href="https://t.me/+fMXPrrf07KAzMWUy"><i class="fab fa-telegram"></i></a>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>
+                                    <span class="lang-content active" data-lang="uz">Ish Vaqti</span>
+                                    <span class="lang-content" data-lang="ko">영업 시간</span>
+                                </h4>
+                                <p>
+                                    <span class="lang-content active" data-lang="uz">Dushanba - Juma: 9:00 - 18:00</span>
+                                    <span class="lang-content" data-lang="ko">월요일 - 금요일: 9:00 - 18:00</span>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="contact-form">
+                    <h3>
+                        <span class="lang-content active" data-lang="uz">Xabar Qoldiring</span>
+                        <span class="lang-content" data-lang="ko">메시지 보내기</span>
+                    </h3>
+                    
                     <form id="contactForm">
                         <div class="form-group">
-                            <input type="text" id="name" data-uz="Ism Familiya" data-kr="이름 성" placeholder="Ism Familiya" required>
+                            <label class="form-label" for="name">
+                                <span class="lang-content active" data-lang="uz">Ismingiz</span>
+                                <span class="lang-content" data-lang="ko">이름</span>
+                            </label>
+                            <input type="text" id="name" class="form-control" required>
                         </div>
+                        
                         <div class="form-group">
-                            <div class="phone-input-container">
-                                <span class="phone-prefix">+998</span>
-                                <input type="tel" id="contactPhone" class="form-input phone-input" data-uz="90 123 45 67" data-kr="90 123 45 67" placeholder="90 123 45 67" required maxlength="12">
-                            </div>
-                            <div class="error-message" id="contactPhoneError" data-uz="Iltimos, to'liq telefon raqamini kiriting (9 ta raqam)" data-kr="전화번호 9자리를 입력해주세요">Iltimos, to'liq telefon raqamini kiriting (9 ta raqam)</div>
+                            <label class="form-label" for="phone">
+                                <span class="lang-content active" data-lang="uz">Telefon Raqamingiz</span>
+                                <span class="lang-content" data-lang="ko">전화번호</span>
+                            </label>
+                            <input type="tel" id="phone" class="form-control" required>
                         </div>
+                        
                         <div class="form-group">
-                            <textarea id="message" data-uz="Xabaringiz" data-kr="메시지" placeholder="Xabaringiz" required></textarea>
+                            <label class="form-label" for="message">
+                                <span class="lang-content active" data-lang="uz">Xabaringiz</span>
+                                <span class="lang-content" data-lang="ko">메시지</span>
+                            </label>
+                            <textarea id="message" class="form-control" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn" data-uz="Xabar Yuborish" data-kr="메시지 보내기">Xabar Yuborish</button>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%; background: var(--gradient-accent); border: none;">
+                            <span class="lang-content active" data-lang="uz">Xabar Yuborish</span>
+                            <span class="lang-content" data-lang="ko">메시지 보내기</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
                     </form>
-                    <div class="success-message" id="contactSuccessMessage">
-                        <div class="check-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <p data-uz="Xabaringiz yuborildi!" data-kr="메시지가 전송되었습니다!">Xabaringiz yuborildi!</p>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer (1-kod asosida) -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-column">
-                    <h3>BEKH TOUR</h3>
-                    <p data-uz="Biz dunyo bo'ylab eng yaxshi sayohat tajribasini taqdim etamiz. Sizning xavfsiz va qiziqarli sayohatingiz bizning ustuvor vazifamizdir." data-kr="우리는 전 세계 최고의 여행 경험을 제공합니다. 안전하고 흥미로운 여행이 우리의 최우선 과제입니다.">Biz dunyo bo'ylab eng yaxshi sayohat tajribasini taqdim etamiz. Sizning xavfsiz va qiziqarli sayohatingiz bizning ustuvor vazifamizdir.</p>
+                <div class="footer-about">
+                    <div class="footer-logo">BEKH<span>TOUR</span></div>
+                    <p>
+                        <span class="lang-content active" data-lang="uz">Biz sizga eng yaxshi sayohat tajribasini taqdim etishga intilamiz. Dunyoni biz bilan kashf eting!</span>
+                        <span class="lang-content" data-lang="ko">우리는 당신에게 최고의 여행 경험을 제공하기 위해 노력합니다. 우리와 함께 세계를 발견하세요!</span>
+                    </p>
+                    
                     <div class="social-links">
-                        <a href="https://instagram.com/bekhtour.uz/"><i class="fab fa-instagram"></i></a>
-                        <a href="https://t.me/+EG0ucic5_C1kMDIy"><i class="fab fa-telegram"></i></a>
+                        <a href="https://t.me/bekhtour" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="https://www.instagram.com/bekhtour.uz/" class="social-link"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <div class="footer-column">
-                    <h3 data-uz="Tez Havolalar" data-kr="빠른 링크">Tez Havolalar</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home" data-uz="Bosh Sahifa" data-kr="홈페이지">Bosh Sahifa</a></li>
-                        <li><a href="#uzbekistan" data-uz="O'zbekiston" data-kr="우즈베키스탄">O'zbekiston</a></li>
-                        <li><a href="#destinations" data-uz="Yo'nalishlar" data-kr="목적지">Yo'nalishlar</a></li>
-                        <li><a href="#services" data-uz="Xizmatlar" data-kr="서비스">Xizmatlar</a></li>
-                        <li><a href="#contact" data-uz="Aloqa" data-kr="연락처">Aloqa</a></li>
+                
+                <div class="footer-links">
+                    <h4>
+                        <span class="lang-content active" data-lang="uz">Tezkor Havolalar</span>
+                        <span class="lang-content" data-lang="ko">빠른 링크</span>
+                    </h4>
+                    <ul>
+                        <li><a href="#home">
+                            <span class="lang-content active" data-lang="uz">Bosh Sahifa</span>
+                            <span class="lang-content" data-lang="ko">홈</span>
+                        </a></li>
+                        <li><a href="#destinations">
+                            <span class="lang-content active" data-lang="uz">Yo'nalishlar</span>
+                            <span class="lang-content" data-lang="ko">여행지</span>
+                        </a></li>
+                        <li><a href="#services">
+                            <span class="lang-content active" data-lang="uz">Xizmatlar</span>
+                            <span class="lang-content" data-lang="ko">서비스</span>
+                        </a></li>
+                        <li><a href="#about">
+                            <span class="lang-content active" data-lang="uz">Biz Haqimizda</span>
+                            <span class="lang-content" data-lang="ko">회사 소개</span>
+                        </a></li>
+                        <li><a href="#contact">
+                            <span class="lang-content active" data-lang="uz">Bog'lanish</span>
+                            <span class="lang-content" data-lang="ko">연락처</span>
+                        </a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h3 data-uz="Mashhur Yo'nalishlar" data-kr="인기 목적지">Mashhur Yo'nalishlar</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Dubai, BAA</a></li>
-                        <li><a href="#">Antaliya, Turkiya</a></li>
-                        <li><a href="#">Sharm El Sheikh, Misr</a></li>
-                        <li><a href="#">Phuket, Tailand</a></li>
-                        <li><a href="#">Bali, Indoneziya</a></li>
-                    </ul>
+                
+                <div class="footer-contact">
+                    <h4>
+                        <span class="lang-content active" data-lang="uz">Aloqa Ma'lumotlari</span>
+                        <span class="lang-content" data-lang="ko">연락처 정보</span>
+                    </h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Samarqand shahri, Buyuk Ipak Yo'li. 112b</p>
+                    <p><i class="fas fa-phone-alt"></i> +998 90 271 3898</p>
+                    <p><i class="fas fa-envelope"></i> heebeka@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> 
+                        <span class="lang-content active" data-lang="uz">Dushanba - Juma: 9:00 - 18:00</span>
+                        <span class="lang-content" data-lang="ko">월요일 - 금요일: 9:00 - 18:00</span>
+                    </p>
                 </div>
             </div>
+            
             <div class="copyright">
-                <p>&copy; 2026 BEKH TOUR. <span data-uz="Barcha huquqlar himoyalangan." data-kr="모든 권리 보유.">Barcha huquqlar himoyalangan.</span></p>
+                <p>&copy; 2026 Bekh Tour. 
+                    <span class="lang-content active" data-lang="uz">Barcha huquqlar himoyalangan.</span>
+                    <span class="lang-content" data-lang="ko">모든 권리 보유.</span>
+                </p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Language Switcher Functionality
-        const uzBtn = document.getElementById('uzBtn');
-        const krBtn = document.getElementById('krBtn');
-        let currentLang = 'uz';
-
-        function switchLanguage(lang) {
-            currentLang = lang;
-            
-            // Update active button
-            if (lang === 'uz') {
-                uzBtn.classList.add('active');
-                krBtn.classList.remove('active');
-            } else {
-                krBtn.classList.add('active');
-                uzBtn.classList.remove('active');
-            }
-            
-            // Update all elements with data attributes
-            document.querySelectorAll('[data-uz]').forEach(element => {
-                if (lang === 'uz') {
-                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                        element.placeholder = element.getAttribute('data-uz');
-                    } else if (element.tagName === 'OPTION' && element.value === '') {
-                        element.textContent = element.getAttribute('data-uz');
-                    } else {
-                        element.textContent = element.getAttribute('data-uz');
-                    }
-                } else {
-                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                        element.placeholder = element.getAttribute('data-kr');
-                    } else if (element.tagName === 'OPTION' && element.value === '') {
-                        element.textContent = element.getAttribute('data-kr');
-                    } else {
-                        element.textContent = element.getAttribute('data-kr');
-                    }
-                }
-            });
-            
-            // Update hero title and paragraph (special handling for larger text)
-            const heroTitle = document.querySelector('.hero h1');
-            const heroParagraph = document.querySelector('.hero p');
-            if (heroTitle && heroTitle.getAttribute('data-uz')) {
-                heroTitle.textContent = lang === 'uz' ? heroTitle.getAttribute('data-uz') : heroTitle.getAttribute('data-kr');
-            }
-            if (heroParagraph && heroParagraph.getAttribute('data-uz')) {
-                heroParagraph.textContent = lang === 'uz' ? heroParagraph.getAttribute('data-uz') : heroParagraph.getAttribute('data-kr');
-            }
-        }
-
-        uzBtn.addEventListener('click', () => switchLanguage('uz'));
-        krBtn.addEventListener('click', () => switchLanguage('kr'));
-
         // Mobile Menu Toggle
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const body = document.body;
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+            body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
         });
-
+        
         // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
+        document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
-                document.querySelector('.nav-links').classList.remove('active');
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                body.style.overflow = '';
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(navLink => {
+                    navLink.classList.remove('active');
+                });
+                link.classList.add('active');
             });
         });
-
-        // Telefon raqamini avtomatik formatlash
-        const phoneInput = document.getElementById('phone');
-        const contactPhoneInput = document.getElementById('contactPhone');
-        const phoneError = document.getElementById('phoneError');
-        const contactPhoneError = document.getElementById('contactPhoneError');
-
-        function formatPhoneNumber(input, errorElement) {
-            input.addEventListener('input', function(e) {
-                let value = e.target.value.replace(/\D/g, ''); // faqat raqamlarni qoldiradi
-
-                // Format: 90 123 45 67
-                if (value.length > 2 && value.length <= 5) {
-                    value = value.substring(0, 2) + ' ' + value.substring(2, 5);
-                } else if (value.length > 5 && value.length <= 7) {
-                    value = value.substring(0, 2) + ' ' + value.substring(2, 5) + ' ' + value.substring(5, 7);
-                } else if (value.length > 7) {
-                    value = value.substring(0, 2) + ' ' + value.substring(2, 5) + ' ' + value.substring(5, 7) + ' ' + value.substring(7, 9);
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Update active nav based on scroll position
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
                 }
-
-                e.target.value = value.substring(0, 12); // maksimal uzunlikni cheklash
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Language switcher
+        const langButtons = document.querySelectorAll('.lang-btn');
+        
+        langButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                langButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
                 
-                // Telefon raqamini tekshirish
-                const digitsOnly = value.replace(/\D/g, '');
-                if (digitsOnly.length !== 9 && digitsOnly.length > 0) {
-                    errorElement.style.display = 'block';
+                // Get selected language
+                const selectedLang = button.getAttribute('data-lang');
+                
+                // Update all language-specific content
+                document.querySelectorAll('.lang-content').forEach(content => {
+                    content.classList.remove('active');
+                    if (content.getAttribute('data-lang') === selectedLang) {
+                        content.classList.add('active');
+                    }
+                });
+                
+                // Update page title based on language
+                const pageTitle = document.querySelector('title');
+                if (selectedLang === 'uz') {
+                    pageTitle.textContent = 'Bekh Tour - Sayohat va Sarguzashtlar';
                 } else {
-                    errorElement.style.display = 'none';
+                    pageTitle.textContent = 'Bekh Tour - 여행 및 모험';
                 }
+                
+                // Update form placeholder based on language
+                updateFormPlaceholders(selectedLang);
             });
-        }
-
-        formatPhoneNumber(phoneInput, phoneError);
-        formatPhoneNumber(contactPhoneInput, contactPhoneError);
-
-        // Booking form submission with Telegram integration
-        document.getElementById('bookingForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const country = document.getElementById('country').value;
-            const people = document.getElementById('people').value;
-            const days = document.getElementById('days').value;
-            const phone = document.getElementById('phone').value;
-            
-            // Telefon raqamini tekshirish
-            const phoneDigits = phone.replace(/\D/g, '');
-            if (phoneDigits.length !== 9) {
-                phoneError.style.display = 'block';
-                return;
-            }
-            
-            const fullPhone = '+998 ' + phone;
-            
-            // Prepare data for Telegram
-            const telegramData = {
-                country: country,
-                people: people,
-                days: days,
-                phone: fullPhone
-            };
-            
-            try {
-                // Send to Telegram bot
-                const telegramResponse = await sendToTelegramBooking(telegramData);
-                
-                // Show success message
-                const successMessage = document.getElementById('successMessage');
-                successMessage.style.display = 'block';
-                
-                // Reset form
-                this.reset();
-                
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    successMessage.style.display = 'none';
-                }, 5000);
-                
-            } catch (error) {
-                alert(currentLang === 'uz' ? 'Ariza yuborishda xatolik yuz berdi. Iltimos, qaytadan urinib ko\'ring.' : '신청서 전송 중 오류가 발생했습니다. 다시 시도해 주세요.');
-            }
         });
-
-        // Contact form submission with Telegram integration
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        
+        // Update form placeholders
+        function updateFormPlaceholders(lang) {
+            const nameInput = document.getElementById('name');
+            const phoneInput = document.getElementById('phone');
+            const messageInput = document.getElementById('message');
+            
+            if (lang === 'uz') {
+                nameInput.placeholder = 'Ismingizni kiriting';
+                phoneInput.placeholder = 'Telefon raqamingiz';
+                messageInput.placeholder = 'Xabaringizni yozing...';
+            } else {
+                nameInput.placeholder = '이름을 입력하세요';
+                phoneInput.placeholder = '전화번호';
+                messageInput.placeholder = '메시지를 입력하세요...';
+            }
+        }
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
+            // Get form values
             const name = document.getElementById('name').value;
-            const phone = document.getElementById('contactPhone').value;
+            const phone = document.getElementById('phone').value;
             const message = document.getElementById('message').value;
             
-            // Telefon raqamini tekshirish
-            const phoneDigits = phone.replace(/\D/g, '');
-            if (phoneDigits.length !== 9) {
-                contactPhoneError.style.display = 'block';
-                return;
-            }
+            // Get current language
+            const currentLang = document.querySelector('.lang-btn.active').getAttribute('data-lang');
             
-            const fullPhone = '+998 ' + phone;
-            
-            // Prepare data for Telegram
-            const telegramData = {
-                name: name,
-                phone: fullPhone,
-                message: message
-            };
-            
-            try {
-                // Send to Telegram bot
-                const telegramResponse = await sendToTelegramContact(telegramData);
-                
-                // Show success message
-                const successMessage = document.getElementById('contactSuccessMessage');
-                successMessage.style.display = 'block';
-                
-                // Reset form
-                this.reset();
-                
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    successMessage.style.display = 'none';
-                }, 5000);
-                
-            } catch (error) {
-                alert(currentLang === 'uz' ? 'Xabar yuborishda xatolik yuz berdi. Iltimos, qaytadan urinib ko\'ring.' : '메시지 전송 중 오류가 발생했습니다. 다시 시도해 주세요.');
-            }
-        });
-
-        // Telegram bot integration for booking form
-        async function sendToTelegramBooking(data) {
-            const botToken = '8579829488:AAGPGl9CuwILxkEh8TDq3ExgI-MpkxTKPYA';
-            const chatIds = ['925918834', '7984884145', '5288072007', '8157562474']; // 4 ta chat ID
-
-            const countryLabel = currentLang === 'uz' ? 'Davlat' : '국가';
-            const peopleLabel = currentLang === 'uz' ? 'Kishilar soni' : '인원 수';
-            const daysLabel = currentLang === 'uz' ? 'Sayohat kuni' : '여행 일수';
-            const phoneLabel = currentLang === 'uz' ? 'Telefon' : '전화번호';
-            const title = currentLang === 'uz' ? 'Yangi bron arizasi!' : '새 예약 신청서!';
-
-            const text = `
-🆕 <b>${title}</b>
-
-🗺️ <b>${countryLabel}:</b> ${data.country}
-👥 <b>${peopleLabel}:</b> ${data.people}
-📅 <b>${daysLabel}:</b> ${data.days}
-📞 <b>${phoneLabel}:</b> ${data.phone}
-            `;
-
-            const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-            const results = [];
-
-            for (const chatId of chatIds) {
-                try {
-                    const response = await fetch(url, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            chat_id: chatId,
-                            text: text,
-                            parse_mode: 'HTML'
-                        })
-                    });
-
-                    if (!response.ok) {
-                        console.error(`❌ Xabar ${chatId} ga yuborilmadi`);
-                        continue;
-                    }
-
-                    const result = await response.json();
-                    results.push(result);
-
-                } catch (error) {
-                    console.error(`⚠️ ${chatId} uchun xato:`, error.message);
-                }
-            }
-
-            return results; // muvaffaqiyatli yuborilganlar ro'yxati
-        }
-
-        // Telegram bot integration for contact form
-        async function sendToTelegramContact(data) {
-            const botToken = '8579829488:AAGPGl9CuwILxkEh8TDq3ExgI-MpkxTKPYA';
-            const chatIds = ['925918834', '8157562474', '5288072007', '7984884145']; // 4 ta chat ID
-
-            const nameLabel = currentLang === 'uz' ? 'Ism Familiya' : '이름 성';
-            const phoneLabel = currentLang === 'uz' ? 'Telefon' : '전화번호';
-            const messageLabel = currentLang === 'uz' ? 'Xabar' : '메시지';
-            const title = currentLang === 'uz' ? 'Yangi xabar!' : '새 메시지!';
-
-            const text = `
-🆕 <b>${title}</b>
-
-👤 <b>${nameLabel}:</b> ${data.name}
-📞 <b>${phoneLabel}:</b> ${data.phone}
-💬 <b>${messageLabel}:</b> ${data.message}
-            `;
-
-            const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-            const results = [];
-
-            for (const chatId of chatIds) {
-                try {
-                    const response = await fetch(url, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            chat_id: chatId,
-                            text: text,
-                            parse_mode: 'HTML'
-                        })
-                    });
-
-                    if (!response.ok) {
-                        console.error(`❌ Xabar ${chatId} ga yuborilmadi`);
-                        continue;
-                    }
-
-                    const result = await response.json();
-                    results.push(result);
-
-                } catch (error) {
-                    console.error(`⚠️ ${chatId} uchun xato:`, error.message);
-                }
-            }
-
-            return results; // muvaffaqiyatli yuborilganlar ro'yxati
-        }
-
-        // Navbar background on scroll
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            if (currentLang === 'uz') {
+                alert(`Rahmat, ${name}! Xabaringiz qabul qilindi. Tez orada siz bilan bog'lanamiz.`);
             } else {
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                alert(`감사합니다, ${name}! 메시지가 접수되었습니다. 곧 연락드리겠습니다.`);
             }
+            
+            // Reset form
+            contactForm.reset();
+            updateFormPlaceholders(currentLang);
         });
-
-        // Initialize language switcher
-        switchLanguage('uz');
+        
+        // Destinations Slider
+        const destinationsData = [
+            {
+                image: 'https://raw.githubusercontent.com/AlijonovAlisher/BEKH-TOUR/main/01.png',
+                titleUz: 'Samarqand',
+                titleKo: '사마르칸트',
+                descriptionUz: 'Buyuk Ipak Yo\'lining markazi, ajoyib me\'morchilik yodgorliklari shahri. Registon maydoni, Gur-Emir maqbarasi.',
+                descriptionKo: '위대한 실크로드의 중심, 놀라운 건축 기념물의 도시. 레기스탄 광장, 구르 에미르 묘소.',
+                tagsUz: ['Tarixiy', 'Madaniy', 'Arxitektura'],
+                tagsKo: ['역사적', '문화적', '건축']
+            },
+            {
+                image: 'https://raw.githubusercontent.com/AlijonovAlisher/BEKH-TOUR/main/02.jpg',
+                titleUz: 'Buxoro',
+                titleKo: '부하라',
+                descriptionUz: 'Qadimiy madaniyat va me\'morchilik durdonalari saqlangan shahar. Ark qal\'asi, Kalon minorasi.',
+                descriptionKo: '고대 문화와 건축 걸작이 보존된 도시. 아크 성, 칼론 미나레트.',
+                tagsUz: ['Qadimiy', 'Madaniy', 'Shahar'],
+                tagsKo: ['고대', '문화적', '도시']
+            },
+            {
+                image: 'https://raw.githubusercontent.com/AlijonovAlisher/BEKH-TOUR/main/xiva.jpg',
+                titleUz: 'Xiva',
+                titleKo: '히바',
+                descriptionUz: 'Muzey shahar, O\'zbekistonning qadimiy poytaxti. Ichon Qal\'a, Kalta Minor.',
+                descriptionKo: '박물관 도시, 우즈베키스탄의 고대 수도. 이찬 칼라, 칼타 미나레트.',
+                tagsUz: ['Muzey', 'Tarixiy', 'Qal\'a'],
+                tagsKo: ['박물관', '역사적', '성']
+            },
+            {
+                image: 'https://raw.githubusercontent.com/AlijonovAlisher/BEKH-TOUR/main/03.jpg',
+                titleUz: 'Toshkent',
+                titleKo: '타슈켄트',
+                descriptionUz: 'Zamonaviy va an\'anaviy madaniyat uyg\'unligi shahri. Amir Temur maydoni, Kukaldosh madrasasi.',
+                descriptionKo: '현대와 전통 문화의 조화를 이루는 도시. 아미르 테무르 광장, 쿠칼도시 신학교.',
+                tagsUz: ['Zamonaviy', 'Madaniy', 'Poytaxt'],
+                tagsKo: ['현대', '문화적', '수도']
+            },
+            {
+                image: 'https://raw.githubusercontent.com/AlijonovAlisher/BEKH-TOUR/main/05.jpg',
+                titleUz: 'Farg\'ona Vodiyi',
+                titleKo: '페르가나 계곡',
+                descriptionUz: 'Tabiat go\'zalligi va mo\'tadil iqlimi bilan mashhur. Chust, Marg\'ilon, Rishton.',
+                descriptionKo: '자연의 아름다움과 온화한 기후로 유명한 지역. 추스트, 마르길란, 리시톤.',
+                tagsUz: ['Tabiiy', 'Go\'zal', 'Vodiy'],
+                tagsKo: ['자연', '아름다운', '계곡']
+            }
+        ];
+        
+        function createDestinationCard(destination, lang) {
+            return `
+                <div class="destination-card">
+                    <img src="${destination.image}" alt="${lang === 'uz' ? destination.titleUz : destination.titleKo}" class="destination-image">
+                    <div class="destination-content">
+                        <h3 class="destination-title">
+                            <span class="lang-content ${lang === 'uz' ? 'active' : ''}" data-lang="uz">${destination.titleUz}</span>
+                            <span class="lang-content ${lang === 'ko' ? 'active' : ''}" data-lang="ko">${destination.titleKo}</span>
+                        </h3>
+                        <p class="destination-description">
+                            <span class="lang-content ${lang === 'uz' ? 'active' : ''}" data-lang="uz">${destination.descriptionUz}</span>
+                            <span class="lang-content ${lang === 'ko' ? 'active' : ''}" data-lang="ko">${destination.descriptionKo}</span>
+                        </p>
+                        <div class="destination-tags">
+                            ${(lang === 'uz' ? destination.tagsUz : destination.tagsKo).map(tag => 
+                                `<span class="tag">${tag}</span>`
+                            ).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function renderDestinations(lang = 'uz') {
+            const container = document.getElementById('destinationsContainer');
+            container.innerHTML = destinationsData.map(dest => 
+                createDestinationCard(dest, lang)
+            ).join('');
+            
+            // Reset slider position
+            currentSlide = 0;
+            updateSliderPosition();
+        }
+        
+        // Slider functionality
+        let currentSlide = 0;
+        const sliderContainer = document.getElementById('destinationsContainer');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        function updateSliderPosition() {
+            const cardWidth = document.querySelector('.destination-card').offsetWidth + 30; // width + gap
+            sliderContainer.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+        }
+        
+        function nextSlide() {
+            const totalSlides = destinationsData.length;
+            const visibleSlides = window.innerWidth < 768 ? 1 : window.innerWidth < 1200 ? 2 : 3;
+            
+            if (currentSlide < totalSlides - visibleSlides) {
+                currentSlide++;
+            } else {
+                currentSlide = 0;
+            }
+            updateSliderPosition();
+        }
+        
+        function prevSlide() {
+            const totalSlides = destinationsData.length;
+            const visibleSlides = window.innerWidth < 768 ? 1 : window.innerWidth < 1200 ? 2 : 3;
+            
+            if (currentSlide > 0) {
+                currentSlide--;
+            } else {
+                currentSlide = totalSlides - visibleSlides;
+            }
+            updateSliderPosition();
+        }
+        
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Render initial destinations
+            renderDestinations();
+            
+            // Initialize form placeholders
+            updateFormPlaceholders('uz');
+            
+            // Add animation to elements on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            // Observe elements for animation
+            document.querySelectorAll('.destination-card, .service-card, .stat-item').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+            
+            // Update slider on window resize
+            window.addEventListener('resize', updateSliderPosition);
+        });
+        
+        // Update destinations when language changes
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                renderDestinations(lang);
+            });
+        });
     </script>
 </body>
 </html>
